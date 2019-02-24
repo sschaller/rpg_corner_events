@@ -2,9 +2,6 @@
 
 #include <deque>
 
-#include <ros/ros.h>
-#include <dvs_msgs/EventArray.h>
-
 #include <Eigen/Dense>
 
 #include "corner_event_detector/detector.h"
@@ -18,7 +15,7 @@ public:
   FastDetector(bool connect = true);
   virtual ~FastDetector();
 
-  bool isFeature(const dvs_msgs::Event &e);
+  bool isFeature(const corner_event_detector::Event &e);
 
 private:
   // SAE

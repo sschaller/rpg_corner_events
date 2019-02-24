@@ -26,11 +26,11 @@ FastDetector::~FastDetector()
 {
 }
 
-bool FastDetector::isFeature(const dvs_msgs::Event &e)
+bool FastDetector::isFeature(const corner_event_detector::Event &e)
 {
   // update SAE
   const int pol = e.polarity ? 1 : 0;
-  sae_[pol](e.x, e.y) = e.ts.toSec();
+  sae_[pol](e.x, e.y) = e.ts;
 
   const int max_scale = 1;
 

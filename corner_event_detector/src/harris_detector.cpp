@@ -46,7 +46,7 @@ HarrisDetector::~HarrisDetector()
 {
 }
 
-bool HarrisDetector::isFeature(const dvs_msgs::Event &e)
+bool HarrisDetector::isFeature(const corner_event_detector::Event &e)
 {
   // update queues
   queues_->newEvent(e.x, e.y, e.polarity);

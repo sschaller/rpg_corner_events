@@ -2,9 +2,6 @@
 
 #include <deque>
 
-#include <ros/ros.h>
-#include <dvs_msgs/EventArray.h>
-
 #include "corner_event_detector/detector.h"
 
 #include "corner_event_detector/local_event_queues.h"
@@ -19,14 +16,14 @@ public:
   HarrisDetector(bool connect = true);
   virtual ~HarrisDetector();
 
-  bool isFeature(const dvs_msgs::Event &e);
+  bool isFeature(const corner_event_detector::Event &e);
   double getLastScore() const {
     return last_score_;
   }
 
 private:
   // methods
-  void updateQueue(const int x, const int y, const dvs_msgs::Event &e);
+  void updateQueue(const int x, const int y, const corner_event_detector::Event &e);
   double getHarrisScore(int x, int y, bool polarity);
 
   // queues
