@@ -36,36 +36,31 @@ For a commercial license, please contact the [Davide Scaramuzza](http://rpg.ifi.
 
 # Instructions
 ## Installation
-1. Install the [DVS/DAVIS ROS driver](https://github.com/uzh-rpg/rpg_dvs_ros) (you only need the `dvs_msgs` and `dvs_renderer` packages).
-2. Clone the repository to your ROS workspace
+1. Clone the repository
     ```
-    git clone https://github.com/uzh-rpg/rpg_corner_events
+    git clone https://github.com/sschaller/rpg_corner_events
     ```
 3. Build it using the following command:
     ```
-    roscd corner_event_detector
-    catkin build --this
+    cd rpg_corner_events/corner_event_detector/
+    mkdir build && cd build
+    cmake ..
+    make
     ```
 
 ## Using a Dataset
-To get a bag file from the [Event-Camera Dataset](http://rpg.ifi.uzh.ch/davis_data.html):
+To get a zip file from the [Event-Camera Dataset](http://rpg.ifi.uzh.ch/davis_data.html):
 ```
-wget http://rpg.ifi.uzh.ch/datasets/davis/shapes_6dof.bag
-```
-
-Run the detector and visualization launch file:
-```
-roslaunch corner_event_detector bag.launch
+wget http://rpg.ifi.uzh.ch/datasets/davis/shapes_6dof.zip
 ```
 
-In a separate terminal, run a bag file, e.g.:
+Run the detector
 ```
-rosbag play shapes_6dof.bag
+./detector harris events_folder/
 ```
-
-## Using the DAVIS Event Camera (Live Mode)
-Please run the file:
+or
 ```
-roslaunch corner_event_detector davis_live.launch
+./detector fast events_folder/
 ```
-
+This will create a classification.txt file in events_folder with the same number of lines as events.txt.
+On each line there is either a 1 or 0 indicating if the corresponding event is a corner.
