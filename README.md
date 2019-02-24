@@ -35,6 +35,10 @@ The source code is released under a GNU General Public License (GPL).
 For a commercial license, please contact the [Davide Scaramuzza](http://rpg.ifi.uzh.ch/people_scaramuzza.html)
 
 # Instructions
+
+Difference to the forked repository:
+Removed ROS dependency to process the events.txt from the .zip datasets
+
 ## Installation
 1. Clone the repository
     ```
